@@ -5,40 +5,61 @@
  * Add ay to the end of the word
  * wh wr th ch sh ph kn
  * check first two letters of the word
+ * order of operations goes inside out, and assignment goes right to left 
+ * assignment is storing a valuable in a variable.
+ * 
  */
 let words = [
-    "write",
-    "banana",
-    "apple",
-    "Apple",
-    "what",
-    "that",
-    "chain",
-    "shark",
-    "philanthropy",
-    "Philanthropy",
-    "known",
-    "a",
-    "the",
-    "at",
-    "is"
-    
+    // "write",
+    // "banana",
+    // "apple",
+    // "Apple",
+    // "what",
+    // "that",
+    // "chain",
+    // "shark",
+    // "philanthropy",
+    // "Philanthropy",
+    // "known",
+    // "a",
+    // "the",
+    // "at",
+    // "is",
+    "marshmallow."
+
 ]
-// words.forEach(word => {
-//     console.log(getPiglatin(word))
-// })
-
-
-
-let sentence = "I love the way mangos look."
-sentence = sentence.split(" ")
-let newSentence = sentence.map(word => {
-    return getPiglatin(word)
+words.forEach(word => {
+    console.log(getPiglatin(word))
 })
-console.log(newSentence.join(" "))
+
+
+
+// let sentence = "I love the way mangos look."
+// let splitWords = sentence.split(" ")
+// //v declaring an empty array to create a new array of translated words
+// let newSentence = []
+// splitWords.forEach(word => {
+//     newSentence.push(getPiglatin(word))
+// })
+// console.log(newSentence.join(" "))
+
+// function getPiglatinSentence(inputSentence) {
+//     let splitWords = inputSentence.split(" ")
+//     let newSentence = []
+//     splitWords.forEach(word => {
+//         newSentence.push(getPiglatin(word))
+//     })
+//     return newSentence.join(" ")
+// }
+// console.log(getPiglatinSentence("Follow the monkey man."))
+
+
+
+
+
 // sentence.forEach(word => {
 //     newSentence.push(getPiglatin(word))
-    
+
 // });
 // console.log(newSentence.join(" "))
 
@@ -48,12 +69,18 @@ function getPiglatin(inputWord) {
     if (inputWord.toLowerCase() === "a") {
         return inputWord + "y"
     }
-
+    let punctuation = [".",",","!","?"]
     let vowels = ["a", "e", "i", "o", "u"]
     let consonantSounds = ["wh", "wr", "th", "ch", "sh", "ph", "kn"]
     let firstLetter = inputWord[0]
     let firstLetterIsCapitalized = firstLetter === firstLetter.toUpperCase()
     let firstTwoLetters = inputWord.slice(0, 2)
+    let lastLetter = inputWord.slice(-1)
+
+    if (inputWord.endsWith(punctuation)){
+        inputWord = lastLetter
+        
+    }
     //if the first letter isn't a vowel then we need to remove it and add it to the end of the word.
     if (consonantSounds.includes(firstTwoLetters.toLowerCase())) {
         inputWord = inputWord.slice(2)
@@ -63,6 +90,7 @@ function getPiglatin(inputWord) {
         inputWord += firstLetter
 
     }
+    //Recapitalzing the first letter of the word to make it gramatically correct (assuming it was in the first place).
     if (firstLetterIsCapitalized) {
         inputWord = inputWord.toLowerCase()
         inputWord = inputWord[0].toUpperCase() + inputWord.slice(1)
@@ -70,6 +98,8 @@ function getPiglatin(inputWord) {
     }
     inputWord += "ay"
     return inputWord
+    
+    
 
 
 }
