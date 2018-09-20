@@ -63,6 +63,10 @@ words.forEach(word => {
 // });
 // console.log(newSentence.join(" "))
 
+/**
+ * gives the piglatin version of the word
+ * @param {string} inputWord 
+ */
 function getPiglatin(inputWord) {
     //if the statement is true the rest of the code won't run
     //if the word is just an "a" we don't need to check anything, just send back "ay"
@@ -76,11 +80,13 @@ function getPiglatin(inputWord) {
     let firstLetterIsCapitalized = firstLetter === firstLetter.toUpperCase()
     let firstTwoLetters = inputWord.slice(0, 2)
     let lastLetter = inputWord.slice(-1)
+    console.log(lastLetter)
 
-    if (inputWord.endsWith(punctuation)){
+    if (punctuation.includes(lastLetter)){
         inputWord = lastLetter
         
     }
+    // console.log("amazing!",punctuation.includes(lastLetter))
     //if the first letter isn't a vowel then we need to remove it and add it to the end of the word.
     if (consonantSounds.includes(firstTwoLetters.toLowerCase())) {
         inputWord = inputWord.slice(2)

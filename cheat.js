@@ -8,6 +8,11 @@ variable = "nachos"
 
 48701985 //number
 
+let number = 5
+
+number = number + 5
+number += 5
+
 //this is an array (or list)
 let array = [
     "listItem", 
