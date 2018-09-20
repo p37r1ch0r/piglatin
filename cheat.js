@@ -74,6 +74,9 @@ if (5>3){
     // <=  >=  
     // !== not equal to
     // ! means not
+    // += a way to add whatever is on the right to whatever is on the left, and store it in left variable 
+    // = assigns
+    // + adds two things together
 
 }
 
@@ -93,3 +96,12 @@ familyNames.forEach(familyName => {
     console.log(familyName);
 })
 
+//backslash indicates a literal character use
+"\"I like bananas\""
+
+//mathmatic operators
+addition = +
+subtraction = -
+multiplication = *
+division = /
+modulous = % //gives remainder of division
