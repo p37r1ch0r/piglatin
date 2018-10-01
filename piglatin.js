@@ -80,10 +80,11 @@ function getPiglatin(inputWord) {
     let firstLetterIsCapitalized = firstLetter === firstLetter.toUpperCase()
     let firstTwoLetters = inputWord.slice(0, 2)
     let lastLetter = inputWord.slice(-1)
-    console.log(lastLetter)
+    
 
-    if (punctuation.includes(lastLetter)){
-        inputWord = lastLetter
+    if (punctuation.includes(lastLetter)) {
+        slice(lastLetter)
+        console.log(inputWord.slice(-1))
         
     }
     // console.log("amazing!",punctuation.includes(lastLetter))
