@@ -34,24 +34,24 @@ words.forEach(word => {
 
 
 
-// let sentence = "I love the way mangos look."
-// let splitWords = sentence.split(" ")
-// //v declaring an empty array to create a new array of translated words
-// let newSentence = []
-// splitWords.forEach(word => {
-//     newSentence.push(getPiglatin(word))
-// })
-// console.log(newSentence.join(" "))
+let sentence = "I love the way mangos look."
+let splitWords = sentence.split(" ")
+//v declaring an empty array to create a new array of translated words
+let newSentence = []
+splitWords.forEach(word => {
+    newSentence.push(getPiglatin(word))
+})
+console.log(newSentence.join(" "))
 
-// function getPiglatinSentence(inputSentence) {
-//     let splitWords = inputSentence.split(" ")
-//     let newSentence = []
-//     splitWords.forEach(word => {
-//         newSentence.push(getPiglatin(word))
-//     })
-//     return newSentence.join(" ")
-// }
-// console.log(getPiglatinSentence("Follow the monkey man."))
+function getPiglatinSentence(inputSentence) {
+    let splitWords = inputSentence.split(" ")
+    let newSentence = []
+    splitWords.forEach(word => {
+        newSentence.push(getPiglatin(word))
+    })
+    return newSentence.join(" ")
+}
+console.log(getPiglatinSentence("Follow the monkey man."))
 
 
 
@@ -80,9 +80,9 @@ function getPiglatin(inputWord) {
     let firstLetterIsCapitalized = firstLetter === firstLetter.toUpperCase()
     let firstTwoLetters = inputWord.slice(0, 2)
     let lastLetter = inputWord.slice(-1)
-    
+    let lastLetterIsPunctuation = punctuation.includes(lastLetter)
 
-    if (punctuation.includes(lastLetter)) {
+    if (lastLetterIsPunctuation) {
         inputWord = inputWord.substring(0, inputWord.length - 1)
         
         
@@ -104,6 +104,9 @@ function getPiglatin(inputWord) {
 
     }
     inputWord += "ay"
+    if (lastLetterIsPunctuation) {
+        inputWord += lastLetter
+    }
     return inputWord
     
     
