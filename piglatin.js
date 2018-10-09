@@ -83,8 +83,8 @@ function getPiglatin(inputWord) {
     
 
     if (punctuation.includes(lastLetter)) {
-        slice(lastLetter)
-        console.log(inputWord.slice(-1))
+        inputWord = inputWord.substring(0, inputWord.length - 1)
+        
         
     }
     // console.log("amazing!",punctuation.includes(lastLetter))
