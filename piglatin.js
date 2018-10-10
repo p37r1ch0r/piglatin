@@ -15,18 +15,28 @@
 
 const sentenceInput = document.getElementById("sentence-input");
 const submitButton = document.getElementById("submit-button")
-const output = document.getElementById("output")
-const translationHeader = document.getElementById("translation-header")
+const alertContainer = document.getElementById("alert-container")
+// const output = document.getElementById("output")
+// const translationHeader = document.getElementById("translation-header")
 
 sentenceInput.value = "Someday we'll all be pumpkins."
-output.innerText = "This is definitely piglatin!"
+// output.innerText = "This is definitely piglatin!"
 
 submitButton.onclick = () => {
     // console.log(getPiglatinSentence(sentenceInput.value))
-    output.innerText = getPiglatinSentence(sentenceInput.value)
-    translationHeader.innerText = "Translation Complete"
+    // output.innerText = getPiglatinSentence(sentenceInput.value)
+    // translationHeader.innerText = "Translation Complete"
 
+    // Create a new html element
+    const newElement = document.createElement('div');
+    // Set the text of the element
+    newElement.innerText = getPiglatinSentence(sentenceInput.value)
+    // Add the class name
+    newElement.setAttribute('class', 'alert alert-info spooky-alert')
+    // Add the role attribute
+    newElement.setAttribute('role', 'alert')
 
+    alertContainer.appendChild(newElement);    
 
 
 
