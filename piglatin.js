@@ -5,43 +5,49 @@
  * Add ay to the end of the word
  * wh wr th ch sh ph kn
  * check first two letters of the word
- * order of operations goes inside out, and assignment goes right to left 
+ * order of operations goes inside out, and assignment goes right to left
  * assignment is storing a valuable in a variable.
- * 
+ *
  */
-let words = [
-    // "write",
-    // "banana",
-    // "apple",
-    // "Apple",
-    // "what",
-    // "that",
-    // "chain",
-    // "shark",
-    // "philanthropy",
-    // "Philanthropy",
-    // "known",
-    // "a",
-    // "the",
-    // "at",
-    // "is",
-    "marshmallow."
 
-]
-words.forEach(word => {
-    console.log(getPiglatin(word))
-})
+// let args = process.argv
+// let inputSentence = args[2]
+
+const sentenceInput = document.getElementById("sentence-input");
+const submitButton = document.getElementById("submit-button")
+const output = document.getElementById("output")
+const translationHeader = document.getElementById("translation-header")
+
+sentenceInput.value = "Someday we'll all be pumpkins."
+output.innerText = "This is definitely piglatin!"
+
+submitButton.onclick = () => {
+    // console.log(getPiglatinSentence(sentenceInput.value))
+    output.innerText = getPiglatinSentence(sentenceInput.value)
+    translationHeader.innerText = "Translation Complete"
 
 
 
-let sentence = "I love the way mangos look."
-let splitWords = sentence.split(" ")
-//v declaring an empty array to create a new array of translated words
-let newSentence = []
-splitWords.forEach(word => {
-    newSentence.push(getPiglatin(word))
-})
-console.log(newSentence.join(" "))
+
+
+
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getPiglatinSentence(inputSentence) {
     let splitWords = inputSentence.split(" ")
@@ -51,21 +57,11 @@ function getPiglatinSentence(inputSentence) {
     })
     return newSentence.join(" ")
 }
-console.log(getPiglatinSentence("Follow the monkey man."))
 
-
-
-
-
-// sentence.forEach(word => {
-//     newSentence.push(getPiglatin(word))
-
-// });
-// console.log(newSentence.join(" "))
 
 /**
  * gives the piglatin version of the word
- * @param {string} inputWord 
+ * @param {string} inputWord
  */
 function getPiglatin(inputWord) {
     //if the statement is true the rest of the code won't run
@@ -73,7 +69,8 @@ function getPiglatin(inputWord) {
     if (inputWord.toLowerCase() === "a") {
         return inputWord + "y"
     }
-    let punctuation = [".",",","!","?"]
+
+    let punctuation = [".", ",", "!", "?"]
     let vowels = ["a", "e", "i", "o", "u"]
     let consonantSounds = ["wh", "wr", "th", "ch", "sh", "ph", "kn"]
     let firstLetter = inputWord[0]
@@ -84,10 +81,8 @@ function getPiglatin(inputWord) {
 
     if (lastLetterIsPunctuation) {
         inputWord = inputWord.substring(0, inputWord.length - 1)
-        
-        
     }
-    // console.log("amazing!",punctuation.includes(lastLetter))
+
     //if the first letter isn't a vowel then we need to remove it and add it to the end of the word.
     if (consonantSounds.includes(firstTwoLetters.toLowerCase())) {
         inputWord = inputWord.slice(2)
@@ -95,8 +90,8 @@ function getPiglatin(inputWord) {
     } else if (!vowels.includes(firstLetter.toLowerCase())) {
         inputWord = inputWord.slice(1)
         inputWord += firstLetter
-
     }
+
     //Recapitalzing the first letter of the word to make it gramatically correct (assuming it was in the first place).
     if (firstLetterIsCapitalized) {
         inputWord = inputWord.toLowerCase()
@@ -108,8 +103,4 @@ function getPiglatin(inputWord) {
         inputWord += lastLetter
     }
     return inputWord
-    
-    
-
-
 }
