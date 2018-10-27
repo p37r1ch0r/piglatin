@@ -82,7 +82,7 @@ function getPiglatin(inputWord) {
 
     let punctuation = [".", ",", "!", "?"]
     let vowels = ["a", "e", "i", "o", "u"]
-    let consonantSounds = ["wh", "wr", "th", "ch", "sh", "ph", "kn"]
+    let consonantSounds = ["wh", "wr", "th", "ch", "sh", "ph", "kn", "st", "mc"]
     let firstLetter = inputWord[0]
     let firstLetterIsCapitalized = firstLetter === firstLetter.toUpperCase()
     let firstTwoLetters = inputWord.slice(0, 2)
